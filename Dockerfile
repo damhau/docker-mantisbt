@@ -4,7 +4,7 @@
 
 FROM php:5.6-apache
 MAINTAINER XelaRellum <XelaRellum@web.de>
-RUN addgroup -S default && adduser -S -G default default
+
 RUN a2enmod rewrite
 
 RUN set -xe \
@@ -31,4 +31,4 @@ RUN set -xe \
     && ln -sf /usr/share/zoneinfo/${MANTIS_TIMEZONE} /etc/localtime \
     && echo 'date.timezone = "${MANTIS_TIMEZONE}"' > /usr/local/etc/php/php.ini
 
-USER default
+USER www-data
